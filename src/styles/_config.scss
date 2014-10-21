@@ -1,0 +1,207 @@
+//------------------------------------//
+//  $RESET
+//------------------------------------//
+$reset-mode: true !default;
+@import '_reset';
+
+//------------------------------------//
+//  $FONTS
+//------------------------------------//
+@font-face {
+	font-family: 'copseregular';
+	src: url('../fonts/copse-regular-webfont.eot');
+	src: url('../fonts/copse-regular-webfont.eot?#iefix') format('embedded-opentype'),
+		 url('../fonts/copse-regular-webfont.woff') format('woff'),
+		 url('../fonts/copse-regular-webfont.ttf') format('truetype'),
+		 url('../fonts/copse-regular-webfont.svg#copseregular') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+$h1-size: 36px !default;
+$h2-size: 30px !default;
+$h3-size: 24px !default;
+$h4-size: 20px !default;
+$h5-size: 16px !default;
+$h6-size: 14px !default;
+
+//------------------------------------//
+//  $BASE
+//------------------------------------//
+// Base font sizes and colors
+$base-font-size:    16px !default;
+$base-line-height:  24px !default;
+$base-font-color:   #333333 !default;
+$base-link-color:   #62b3e7 !default;
+
+// Base font-family
+$base-font-family: copseregular;
+
+// Element spacing and line-height ratio
+$base-spacing-unit: $base-line-height !default;
+$half-spacing-unit: $base-spacing-unit / 2 !default;
+$line-height-ratio: $base-line-height / $base-font-size;
+
+
+//------------------------------------//
+//  $VARIAVÉIS
+//------------------------------------//
+// Background colors
+$bg-white:        #ffffff !default;
+$bg-black:        #222222 !default;
+$bg-light-gray:   #f9f9f9 !default;
+$bg-gray:         #999999 !default;
+$bg-light-green:  #dff0d8 !default;
+$bg-green:        #5cb85c !default;
+$bg-light-blue:   #d9edf7 !default;
+$bg-blue:         #5bc0de !default;
+$bg-light-yellow: #fcf8e3 !default;
+$bg-yellow:       #ed9c28 !default;
+$bg-light-red:    #f2dede !default;
+$bg-red:          #d9534f !default;
+
+// Type colors
+$color-white:  #ffffff !default;
+$color-black:  #222222 !default;
+$color-gray:   #999999 !default;
+$color-green:  #468847 !default;
+$color-blue:   #3a87ad !default;
+$color-red:    #d2322d !default;
+$color-yellow: #c09853 !default;
+
+
+//------------------------------------//
+//  $RESPONSIVE
+//------------------------------------//
+// Breakpoints
+$extra-small-start: 30em !default;
+$small-start:       48em !default;
+$medium-start:      60em !default;
+$large-start:       70em !default;
+$extra-large-start: 80em !default;
+
+
+//------------------------------------//
+//  $EXTENDS
+//------------------------------------//
+%wFull {
+-webkit-box-sizing: border-box;
+   -moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	 -o-box-sizing: border-box;
+		box-sizing: border-box;
+}
+
+%single-transition {
+-webkit-transition: all 300ms ease-out;
+   -moz-transition: all 300ms ease-out;
+	-ms-transition: all 300ms ease-out;
+	 -o-transition: all 300ms ease-out;
+		transition: all 300ms ease-out;
+}
+
+%contentBefore {
+	content: " ";
+	display: block;
+	position: absolute;
+}
+
+//------------------------------------//
+//  $MIXINGS
+//------------------------------------//
+
+// Passing in a single value will create font-sizing in pixels, rems as well as a proper line-height.
+//    `@include font-size(24px);`
+@mixin font-size($font-size, $line-height:true) {
+	font-size: $font-size;
+	font-size: ($font-size / $base-font-size) * 1rem;
+
+	@if $line-height == true {
+		line-height: ceil($font-size / $base-line-height) * ($base-line-height / $font-size);
+	}
+}
+
+// Proper vendor prefixes are created just by passing a property value and size value.
+//    `@include vendor(border-radius, 4px);`    `@include vendor(background-size, cover);`
+@mixin vendor($property, $value) {
+-webkit-#{$property}: $value;
+   -moz-#{$property}: $value;
+	-ms-#{$property}: $value;
+	 -o-#{$property}: $value;
+		#{$property}: $value;
+}
+
+@mixin singleTransition($time: 250) {
+-webkit-transition: all #{$time}ms ease-out;
+   -moz-transition: all #{$time}ms ease-out;
+	-ms-transition: all #{$time}ms ease-out;
+	 -o-transition: all #{$time}ms ease-out;
+		transition: all #{$time}ms ease-out;
+}
+
+@mixin opacity($value){
+	$IEValue: $value*100;
+	 -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=' + $value + ')';
+		 filter: alpha(opacity=$value);
+   -moz-opacity: $value;
+ -khtml-opacity: $value;
+		opacity: $value;
+}
+
+@mixin replaceText ($bg-img, $x, $y) {
+	background: transparent url($bg-img) $x $y no-repeat;
+	overflow: hidden;
+	text-indent: -99999cm;
+}
+
+@mixin simpleGradient($color01, $color02) {
+	background: $color01;
+	background: -moz-linear-gradient(top,  $color01 0%, $color02 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$color01), color-stop(100%,$color02));
+	background: -webkit-linear-gradient(top,  $color01 0%,$color02 100%);
+	background: -o-linear-gradient(top,  $color01 0%,$color02 100%);
+	background: -ms-linear-gradient(top,  $color01 0%,$color02 100%);
+	background: linear-gradient(to bottom,  $color01 0%,$color02 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color01', endColorstr='$color02',GradientType=0 );
+}
+
+
+
+//
+// By passing in one of the pre-defined media queries that
+// are packaged with Concise by default, you can easily
+// create styles that are built from the ground-up to be
+// mobile friendly.
+//
+//    `@include breakpoint(extra-small) { [styles here] }`
+//
+//
+@mixin breakpoint($point) {
+	@if $point == extra-small {
+		@media (min-width: $extra-small-start)  { @content; }
+	}
+
+	@else if $point == small {
+		@media (min-width: $small-start)  { @content; }
+	}
+
+	@else if $point == medium {
+		@media (min-width: $medium-start) { @content; }
+	}
+
+	@else if $point == large {
+		@media (min-width: $large-start) { @content; }
+	}
+
+	@else if $point == extra-large {
+		@media (min-width: $extra-large-start) { @content; }
+	}
+
+	@else if $point == high-density {
+		@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+			   only screen and (min--moz-device-pixel-ratio: 1.5),
+			   only screen and (-o-min-device-pixel-ratio: 3/2),
+			   only screen and (min-device-pixel-ratio: 1.5) { @content; }
+	}
+}
