@@ -1,10 +1,4 @@
-$(document).ready(function(){
-
-	'use strict';
-
-	console.log('Opa!');
-
-});
+'use strict';
 
 // PLAY YOUTUBE VIDEO
 function playYoutubeVideo() {

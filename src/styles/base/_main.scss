@@ -1,0 +1,41 @@
+@charset 'UTF-8';
+
+//------------------------------------
+//  MAIN
+//------------------------------------
+
+// Variables
+$font-size: #{($base-font-size / 16px) * 1em};
+$line-height-integer: #{$line-height-ratio};
+
+* {
+	&,
+	&:before,
+	&:after { box-sizing: border-box; }
+}
+
+html {
+	overflow-y: scroll;
+
+	body { opacity: 1 !important; } //prevent vwo flash
+}
+
+html,
+body {
+	-moz-font-smoothing: antialiased;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	background-color: $website-bg-color;
+	color: $base-font-color;
+	font-family: $base-font-family;
+	font-weight: 200;
+	font-smooth: always;
+	margin: 0;
+	min-height: 100vh;
+}
+
+body {
+	@include radialGradient(#87cf6f, #7eca71);
+	overflow: auto;
+	width: 600px;
+}

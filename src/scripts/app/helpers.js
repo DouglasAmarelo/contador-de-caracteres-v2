@@ -33,6 +33,39 @@ String.prototype.trim = function() {
 String.prototype.capitalize = function() {
 	return this.charAt(0).toUpperCase() + this.slice(1);
 };
+Array.prototype.chunk = function ( n ) {
+    if ( !this.length ) {
+        return [];
+    }
+    return [ this.slice( 0, n ) ].concat( this.slice(n).chunk(n) );
+};
+if (!Function.prototype.bind) {
+  Function.prototype.bind = function(oThis) {
+    if (typeof this !== 'function') {
+      // closest thing possible to the ECMAScript 5
+      // internal IsCallable function
+      throw new TypeError('Function.prototype.bind - what is trying to be bound is not callable');
+    }
+
+    var aArgs   = Array.prototype.slice.call(arguments, 1),
+        fToBind = this,
+        fNOP    = function() {},
+        fBound  = function() {
+          return fToBind.apply(this instanceof fNOP
+                 ? this
+                 : oThis,
+                 aArgs.concat(Array.prototype.slice.call(arguments)));
+        };
+
+    if (this.prototype) {
+      // native functions don't have a prototype
+      fNOP.prototype = this.prototype;
+    }
+    fBound.prototype = new fNOP();
+
+    return fBound;
+  };
+}
 /* String.prototype.humanize = function( splitAt ) {
 	return (splitAt ? this.slice(0, splitAt) + ' ' + this.slice(splitAt) : this).replace(/_|-/g, ' ').replace(/(\w+)/g, function(match) {
 		return match.charAt(0).toUpperCase() + match.slice(1);
@@ -45,24 +78,24 @@ String.prototype.capitalize = function() {
 		var cl = $(this).attr('class');
 		return cl && (append + '.' + cl.replace(' ','.'));
 	};
-	
+
 	$.fn.validEmail = function() {
 		return /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/.test( $(this).val());
 	};
-	
+
 	$.fn.getParentKey = function( keys, values, value ){
 		var self = this;
-			
+
 		$.each(keys, function( i, item ){
 			if( self.closest( item ).length > 0 ) {
 				value = values[i];
 				return;
 			}
 		});
-		
+
 		return value;
 	};
-	
+
 	$.extend($.expr[":"], {
 		// http://jqueryvalidation.org/blank-selector/
 		blank: function( a ) { return !$.trim("" + $(a).val()); },
@@ -71,19 +104,19 @@ String.prototype.capitalize = function() {
 		// http://jqueryvalidation.org/unchecked-selector/
 		unchecked: function( a ) { return !$(a).prop("checked"); }
 	});
-	
+
 	/*$.expr[":"].Contains = $.expr.createPseudo(function(arg) {
 		return function( elem ) {
 			return $(elem).text().toUpperCase().indexOf(arg.toUpperCase()) >= 0;
 		};
 	});*/
-	
+
 	/* $.fn.formatSimilar = function( $elem ){
 		return $(this).text( $elem.text().split(' - ')[1] ); //;stringDiff( title, $(this).text() );
 	}; */
-	
+
 	/* $.fn.humanize = function( splitAt ){
 		return $(this).text( $(this).text().humanize(splitAt) );
 	};*/
-	
+
 }(jQuery));

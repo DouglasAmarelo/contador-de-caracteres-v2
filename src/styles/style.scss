@@ -1,331 +1,77 @@
-@charset "UTF-8";
-/*!  ===============================================================================
-	Theme Name: Layout - Contador de Caracteres Online | Jüssi
-	Description: CSS desenvolvido para  Jüssi
-	Author: Douglas "Amarelo" Lopes
-	Empresa:  Jüssi
-	Author URI: http://www.jussi.com.br/
-	Version: 1.0
-	=============================================================================== */
+@charset 'UTF-8';
 
+/*! =================================================
+	* Theme Name  : Layout - Jüssi
+	* Description : CSS desenvolvido para Jüssi
+	* Author      : Douglas 'Amarelo' Lopes
+	* Data        : 18-2017
+	* Empresa     : Jüssi
+	* Author URI  : http://douglasamarelo.com/
+	* Version     : 1.0
+	=================================================
+*/
 
 // ===============================================================
 /* @IMPORTS */
 // ===============================================================
-@import '_config';
 
+@import 'helpers/variables';
+@import 'helpers/functions';
+@import 'helpers/mixins';
 
+// Utility helpers
+@import 'helpers/normalize';
+@import 'helpers/helpers';
 
-// ===============================================================
-/* GENÉRICOS */
-// ===============================================================
-.clearfix {
-	&:after {content: " "; clear: both; display: block; font-size: 0; height: 0; visibility: hidden;}
-}
-* html .clearfix {zoom:1;}
-*:first-child+html .clearfix {zoom: 1;}
+// Base styles
+@import 'base/fonts';
+@import 'base/main';
+@import 'base/selection';
 
-.hide {display: none; visibility: hidden;}
-.show {display: block; visibility: visible;}
-.invisible {
-	background: transparent;
-	border: 0;
-	color: transparent;
-	font-size: 0;
-	height: 0;
-	left: 0;
-	margin: 0;
-	overflow: hidden;
-	padding: 0;
-	position: absolute;
-	top: 0;
-	text-indent: -99999cm;
-	visibility: hidden;
-	width: 0;
-}
-.superhide {
-	@extend .invisible;
-	display: none;
-}
+// Component styles Common
+@import 'components/container';
+@import 'components/form';
+
+// Site sections
+@import 'sections/section';
 
 
 // ===============================================================
-/* BASE */
+/* FORM */
 // ===============================================================
-html,
-body {
-	background-color: #dfdab0;
-	color: $base-font-color;
-	font: normal normal #{($base-font-size/16px)*1em}/#{$line-height-ratio} $base-font-family;
-	font-smooth: always;
-	-webkit-font-smoothing: antialiased;
-	-moz-font-smoothing: antialiased;
-	text-rendering: optimizelegibility;
-}
+// form{width:100%;
+// 	fieldset{margin:0;padding:0;border:none;
+// 		&>div{margin-top:20px;
+// 			&:first-child{margin-top:0;}
+// 			&.boxaction{margin-bottom: 20px;}
+// 		}
+// 	}
+// 	label{display:inline-block;}
+// 	input[type="text"],
+// 	input[type="email"],
+// 	textarea{@include vendor(border-radius, 0px);@extend %wFull;display:inline-block;width:100%;height:54px;padding:15px 20px;border:transparent 1px solid;border-bottom-color:#c9c9c9;@include font-size(16px);background-color:#fff;
+// 		&:focus{
+// 			@include vendor(box-shadow, 0px 10px 20px -10px #e1e1e1);
+// 			outline:none;
+// 		}
 
-// ===============================================================
-/* TIPOGRAFIA */
-// ===============================================================
-h1, h2, h3, h4, h5, h6 {
-	text-rendering: optimizeLegibility;
+// 		&.error{@include vendor(transition, border-color 300ms ease);border-color:#ff230a!important;background:#fff url("../img/ico/error.png") right center no-repeat!important;
+// 			&::-webkit-input-placeholder{color:#ff230a!important;}
+// 			&:-moz-placeholder{color:#ff230a!important;}
+// 			&::-moz-placeholder{color:#ff230a!important;}
+// 			&:-ms-input-placeholder{color:#ff230a!important;}
+// 		}
+// 	}
+// 	textarea{height:120px;resize:none;
+// 		&.error{background-position:right 15px!important;}
+// 	}
 
-	& small {
-		font-size: 65% !important;
-		line-height: 1;
-	}
-}
-h1, .h1 {@include font-size($h1-size);}
-h2, .h2 {@include font-size($h2-size);}
-h3, .h3 {@include font-size($h3-size);}
-h4, .h4 {@include font-size($h4-size);}
-h5, .h5 {@include font-size($h5-size);}
-h6, .h6 {@include font-size($h6-size);}
+// 	input[type="submit"],
+// 	button[type="button"]{width:auto;height:auto;padding:inherit;}
 
-p {
-	a {
-		line-height: inherit;
-
-		&:visited { line-height: inherit; }
-	}
-}
-
-// ===============================================================
-/* HEADER */
-// ===============================================================
-
-body {
-	color: #000;
-	font-size: 16px;
-	min-width: 600px;
-	overflow: auto;
-	width: auto;
-	// margin: 10px 15px 10px 15px;
-}
-
-h1, h2, h3, h4, h5, h6 {
-	background-color: #000;
-	color: #fff;
-	display: inline-block;
-	font-weight: normal;
-	margin: 0 0 10px 0;
-	padding: 2px 4px;
-}
-
-// Main
-main {
-	height: auto;
-	margin: 0;
-	width: 550px;
-}
-
-
-// Header
-header {
-	h1 {
-		display: inline-block;
-		font-size: 29px;
-		margin: 0 0 5px 0;
-		padding: 2px 8px;
-	}
-}
-// Menu
-menu {
-	margin: 2px 0 10px 0;
-	padding: 0;
-
-	ul {
-		font-size: 0;
-
-		li {
-			display: inline-block;
-			margin-left: 10px;
-
-			&:first-child {margin-left: 0;}
-
-			h2 {
-				font-size: 17px;
-				margin: 0;
-				padding: 0;
-			}
-
-			a {
-				background-color: #6cad42;
-				color: #000;
-				display: block;
-				padding: 7px 12px;
-				text-decoration: none;
-
-				&.active, &:hover {
-					@extend %single-transition;
-					background-color: #000;
-					color: #fff;
-				}
-			}
-		}
-	}
-}
-
-
-// Tabs
-#tabs {
-	div[id*="tabs"],
-	.tab-content {
-		display: none;
-		position: relative;
-	}
-
-	#tabs-1 {display: block;}
-}
-
-
-// Forms
-form, fieldset, input, textarea, .resultado span {display: block;}
-
-form {
-	width: 400px;
-
-	fieldset {
-		border: none;
-		margin: 0 0 10px 0;
-		padding: 0;
-		position: relative;
-	}
-
-	input, textarea {
-		@extend %wFull;
-		border: none;
-		color: #777;
-		font-family: 'Tahoma';
-		font-size: 14px;
-		float: left;
-		max-width: 81%;
-		padding: 16px 15px;
-		width: 81%;
-	}
-
-	textarea {
-		min-height: 178px;
-	}
-}
-
-// Box de resultados
-
-.resultado {
-	@extend %wFull;
-	background-color: #6cad42;
-	font-size: 11px;
-	float: right;
-	line-height: 110%;
-	max-height: 50px;
-	min-height: 50px;
-	padding: 3px 0 1px 0;
-	text-align: center;
-	width: 17%;
-
-	span {
-		font-size: 18px;
-		font-weight: bold;
-		padding: 6px 0 4px 0;
-	}
-}
-
-/* Visualização do anúncio */
-.sem-anuncio {
-	background-color: #fff;
-	display: none;
-	font-family: Arial;
-	padding: 10px;
-	position: absolute;
-	right: 0;
-	top: -105px;
-	width: 245px;
-
-	.title {
-		color: #2518b5;
-		display: block;
-		font-size: 16px;
-		line-height: 19px;
-	}
-
-	.link {
-		color: #00802a;
-		display: block;
-		font-size: 14px;
-		padding: 2px 0;
-		text-decoration: none;
-	}
-
-	.desc1, .desc2 {
-		color: #444;
-		font-size: 13px;
-		margin: 0;
-		line-height: 16px;
-		overflow: hidden;
-		width: 245px;
-	}
-}
-
-/*  Footer*/
-.logo {
-	display: block;
-	float: left;
-	margin: 10px 25px 0 0;
-}
-
-.rights {
-	border-top: 1px dashed #b5b5b5;
-	font-size: 11px;
-	font-style: italic;
-	line-height: 150%;
-	margin-top: 12px;
-	padding-top: 5px;
-
-	a {
-		color: #000;
-		&:hover {
-			color: #777;
-		}
-	}
-
-	.l-float {
-		float: left;
-	}
-}
-
-
-
-@media all and (max-width: 650px) {
-  body {
-	padding: 0;
-  }
-  .main {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-	width: 100%;
-  }
-  .rights {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-	width: 100%;
-	position: inherit;
-	padding-top: 10px;
-  }
-  h1, .resultado {
-	text-align: center;
-  }
-  form {
-	input[type="text"], textarea {
-	  width: 78%;
-	}
-  }
-  .resultado {
-	width: 20%;
-  }
-  form input {
-	&[type="button"], &[type="submit"], &[type="reset"] {
-	  margin-right: 22%;
-	}
-  }
-}
+// 	.feedback-form{border:#000 1px solid;padding:15px 10px;
+// 		&.success{border-color:#4f8a10;color:#4f8a10;background-color:#dff2bf;}
+// 		&.warning{border-color:#9f6000;color:#9f6000;background-color:#feefb3;}
+// 		&.error{border-color:#d8000c;color:#d8000c;background-color:#ffbaba;}
+// 	}
+// }

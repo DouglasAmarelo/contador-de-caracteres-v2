@@ -35,3 +35,33 @@ Icon
 .Spotlight-V100
 .Trashes
 node_modules
+
+
+# Logs
+logs
+*.log
+
+# Runtime data
+pids
+*.pid
+*.seed
+
+build/Release
+
+node_modules
+
+.idea
+
+.elasticbeanstalk
+
+.vscode
+
+.env
+
+dist
+
+bin
+
+/vendor
+
+conposer.lock
