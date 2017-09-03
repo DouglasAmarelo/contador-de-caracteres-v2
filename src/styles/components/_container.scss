@@ -8,7 +8,14 @@
 	margin: 0 auto;
 	max-width: 1920px;
 	position: relative;
-	width: 90%;
+	width: 95%;
 	z-index: 1;
+}
+
+.max-content {
+	@include radialGradient(#87cf6f, #7eca71);
+	margin: 0 auto;
+	overflow: auto;
+	width: 600px;
 }
 

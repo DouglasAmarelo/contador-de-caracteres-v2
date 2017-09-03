@@ -31,47 +31,7 @@
 // Component styles Common
 @import 'components/container';
 @import 'components/form';
+@import 'components/menu';
 
 // Site sections
 @import 'sections/section';
-
-
-// ===============================================================
-/* FORM */
-// ===============================================================
-// form{width:100%;
-// 	fieldset{margin:0;padding:0;border:none;
-// 		&>div{margin-top:20px;
-// 			&:first-child{margin-top:0;}
-// 			&.boxaction{margin-bottom: 20px;}
-// 		}
-// 	}
-// 	label{display:inline-block;}
-// 	input[type="text"],
-// 	input[type="email"],
-// 	textarea{@include vendor(border-radius, 0px);@extend %wFull;display:inline-block;width:100%;height:54px;padding:15px 20px;border:transparent 1px solid;border-bottom-color:#c9c9c9;@include font-size(16px);background-color:#fff;
-// 		&:focus{
-// 			@include vendor(box-shadow, 0px 10px 20px -10px #e1e1e1);
-// 			outline:none;
-// 		}
-
-// 		&.error{@include vendor(transition, border-color 300ms ease);border-color:#ff230a!important;background:#fff url("../img/ico/error.png") right center no-repeat!important;
-// 			&::-webkit-input-placeholder{color:#ff230a!important;}
-// 			&:-moz-placeholder{color:#ff230a!important;}
-// 			&::-moz-placeholder{color:#ff230a!important;}
-// 			&:-ms-input-placeholder{color:#ff230a!important;}
-// 		}
-// 	}
-// 	textarea{height:120px;resize:none;
-// 		&.error{background-position:right 15px!important;}
-// 	}
-
-// 	input[type="submit"],
-// 	button[type="button"]{width:auto;height:auto;padding:inherit;}
-
-// 	.feedback-form{border:#000 1px solid;padding:15px 10px;
-// 		&.success{border-color:#4f8a10;color:#4f8a10;background-color:#dff2bf;}
-// 		&.warning{border-color:#9f6000;color:#9f6000;background-color:#feefb3;}
-// 		&.error{border-color:#d8000c;color:#d8000c;background-color:#ffbaba;}
-// 	}
-// }

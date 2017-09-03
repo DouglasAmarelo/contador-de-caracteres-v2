@@ -35,4 +35,7 @@ $base-print-font-family : Georgia, 'Times New Roman', Times, serif !default;
 	font-family: 'Gotham Extra';
 	font-weight: 200;
 }
-.font-light { font-weight: 300; }
+.font-light {
+	font-family: 'Gotham';
+	font-weight: 300;
+}

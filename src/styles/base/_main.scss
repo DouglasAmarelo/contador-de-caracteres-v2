@@ -33,9 +33,3 @@ body {
 	margin: 0;
 	min-height: 100vh;
 }
-
-body {
-	@include radialGradient(#87cf6f, #7eca71);
-	overflow: auto;
-	width: 600px;
-}

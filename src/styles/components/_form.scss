@@ -4,4 +4,22 @@
 //  Form
 //------------------------------------
 
+.form {
+	// background-color: #ccc;
+
+	input[type='text'],
+	textarea {
+		width: 100%;
+
+		&:focus {
+			outline: none;
+		}
+	}
+}
+
+// Sem limitador
+.sem-limitador {
+	height: 200px;
+	resize: none;
+}
 
