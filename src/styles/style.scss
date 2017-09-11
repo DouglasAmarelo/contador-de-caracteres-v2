@@ -30,8 +30,11 @@
 
 // Component styles Common
 @import 'components/container';
+@import 'components/grid';
 @import 'components/form';
 @import 'components/menu';
 
 // Site sections
 @import 'sections/section';
+@import 'sections/resultado';
+@import 'sections/footer';

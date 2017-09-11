@@ -5,15 +5,17 @@
 //------------------------------------
 
 .menu {
-	// background-color: #d0d;
-	// background: url('../images/bg.jpg');
-	border-top: 1px solid #333;
-	border-bottom: 1px solid #333;
-	margin-bottom: 15px;
+	background: #fff;
+	border: 1px solid #333;
+	display: flex;
+	justify-content: space-between;
+	margin: 15px 0;
 }
 
 .menu-item {
-	display: inline-block;
 	font-weight: bold;
 	padding: 10px 15px;
+	width: 100%;
+
+	&:hover { text-decoration: underline; }
 }

@@ -12,25 +12,51 @@
 	<link href="css/style.css" type="text/css" rel="stylesheet" charset="utf-8" />
 </head>
 <body class="max-content">
-	<div class="container">
-		<h1 class="title text-center">Contador de caracteres</h1>
+	<div class="bg">
+		<div class="mask"></div>
+	</div>
 
+	<div class="container">
 		<!-- Menu -->
-		<ul class="menu no-list">
+		<ul class="menu no-list text-center">
 			<li class="menu-item">Sem limitador</li>
 			<li class="menu-item">Facebook</li>
 			<li class="menu-item">AdWords</li>
 		</ul>
 		<!-- /Menu -->
+	</div>
 
-		<!-- Form -->
-		<form action="#" class="form">
-			<!-- Sem limitador -->
-			<textarea name="sem-limitador" id="sem-limitador" class="sem-limitador"></textarea>
-			<!-- /Sem limitador -->
-		</form>
-		<!-- /Form -->
+	<div class="container">
+		<div class="row">
+			<div class="legenda col-xs-10">Contador:</div>
+			<div class="legenda col-xs-2 no-padding">Caracteres:</div>
+		</div>
+	</div>
 
+	<div class="container">
+		<div class="row">
+			<!-- Form -->
+			<form action="#" class="form col-xs-10">
+				<!-- Sem limitador -->
+				<textarea name="sem-limitador" id="sem-limitador" class="sem-limitador"></textarea>
+				<!-- /Sem limitador -->
+			</form>
+			<!-- /Form -->
+
+			<!-- Resultado -->
+			<div class="resultado-container text-center col-xs-2">
+				<div class="resultado">
+					000
+				</div>
+			</div>
+			<!-- /Resultado -->
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="footer text-center">
+			By: <a href="http://douglasamarelo.com/" title="@DouglasAmarelo" target="_blank">@DouglasAmarelo</a>
+		</div>
 	</div>
 
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
