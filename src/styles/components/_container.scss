@@ -7,13 +7,17 @@
 .container {
 	margin: 0 auto;
 	max-width: 1920px;
+	padding: 10px;
 	position: relative;
-	width: 95%;
+	width: 100%;
 	z-index: 1;
 }
 
 .max-content {
+	border: 1px solid #000;
 	margin: 0 auto;
-	overflow: auto;
+	overflow: hidden;
+	position: relative;
+	width: 550px;
 }
 

@@ -70,6 +70,7 @@ gulp.task('sasslint', function () {
 	return gulp.src(paths.styles
 		.concat('!src/styles/helpers/_normalize.scss')
 		.concat('!src/styles/base/_main.scss')
+		.concat('!src/styles/components/_grid.scss')
 		.concat('!src/styles/base/_fonts.scss'))
 		.pipe($.sassLint({
 			options: {

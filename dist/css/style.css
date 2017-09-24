@@ -567,17 +567,6 @@ img.full-width {
           box-sizing: border-box; }
 
 @font-face {
-  font-family: 'Gotham Extra';
-  src: url("../fonts/hinted-Gotham-ExtraLight.eot");
-  src: local("Gotham Extra Light"), local("Gotham-ExtraLight");
-  src: url("../fonts/hinted-Gotham-ExtraLight.eot?#iefix") format("embedded-opentype");
-  src: url("../fonts/hinted-Gotham-ExtraLight.woff2") format("woff2");
-  src: url("../fonts/hinted-Gotham-ExtraLight.woff") format("woff");
-  src: url("../fonts/hinted-Gotham-ExtraLight.ttf") format("truetype");
-  font-weight: 200;
-  font-style: normal; }
-
-@font-face {
   font-family: 'Gotham';
   src: url("../fonts/hinted-Gotham-Light.eot");
   src: local("Gotham Light"), local("Gotham-Light");
@@ -587,10 +576,6 @@ img.full-width {
   src: url("../fonts/hinted-Gotham-Light.ttf") format("truetype");
   font-weight: 300;
   font-style: normal; }
-
-.font-exlight {
-  font-family: 'Gotham Extra';
-  font-weight: 200; }
 
 .font-light {
   font-family: 'Gotham';
@@ -611,15 +596,13 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #fff;
-  color: #333;
+  color: #fff;
   font-family: "Gotham", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
   font-weight: 200;
   font-smooth: always;
   margin: 0;
   min-height: 100vh; }
-
-body {
-  border: 1px solid #333; }
 
 .bg {
   background: radial-gradient(ellipse at center, #6cb733 0%, #4FA040 100%);
@@ -628,7 +611,7 @@ body {
   height: 100%;
   left: 0;
   min-height: calc(100% + 150px);
-  position: fixed;
+  position: absolute;
   top: 0;
   width: 100%;
   z-index: 0;
@@ -659,10 +642,20 @@ body {
   left: 0;
   min-height: calc(100% + 150px);
   opacity: .4;
-  position: fixed;
+  position: absolute;
   top: 0;
   width: 100%;
   z-index: 3; }
+  .mask:before {
+    background-color: #7eca71;
+    content: '';
+    height: 100%;
+    opacity: .4;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: -1; }
 
 *::-webkit-selection {
   background-color: #009dfa;
@@ -679,13 +672,17 @@ body {
 .container {
   margin: 0 auto;
   max-width: 1920px;
+  padding: 10px;
   position: relative;
-  width: 95%;
+  width: 100%;
   z-index: 1; }
 
 .max-content {
+  border: 1px solid #000;
   margin: 0 auto;
-  overflow: auto; }
+  overflow: hidden;
+  position: relative;
+  width: 550px; }
 
 /* ROW */
 .row {
@@ -1155,49 +1152,65 @@ body {
         -ms-flex-order: 999;
             order: 999; } }
 
-.legenda {
-  font-size: 12px;
-  font-weight: bold;
-  margin: 15px 0; }
-
 .form input[type='text'],
 .form textarea {
   background: #fff;
   border: 1px solid #333;
+  color: #444;
   font-size: 13px;
+  margin: 5px 0 10px 0;
   padding: 10px;
   width: 100%; }
   .form input[type='text']:focus,
   .form textarea:focus {
     outline: none; }
 
+.input-title,
+.input-length {
+  font-size: 12px; }
+
 .sem-limitador {
   height: 200px;
   resize: none; }
 
 .menu {
-  background: #fff;
-  border: 1px solid #333;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  -js-display: flex;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  margin: 15px 0; }
+  display: block;
+  float: right;
+  margin: 0; }
 
 .menu-item {
-  font-weight: bold;
-  padding: 10px 15px;
-  width: 100%; }
+  display: inline-block;
+  font-size: 14px;
+  letter-spacing: 1px;
+  margin-left: 8px;
+  padding: 5px;
+  position: relative;
+  text-transform: lowercase; }
+  .menu-item:before {
+    border-left: 1px solid #fff;
+    content: '';
+    height: 10px;
+    left: -7px;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+    width: 0; }
+  .menu-item:first-child {
+    margin-left: 0; }
+    .menu-item:first-child:before {
+      display: none; }
   .menu-item:hover {
     text-decoration: underline; }
 
+.header {
+  margin-bottom: 15px; }
+
 .title {
-  font-size: 25px;
-  margin: 0;
-  padding: 15px 0; }
+  font-size: 21px;
+  font-weight: bold;
+  margin: 5px 0;
+  padding: 0; }
 
 .resultado-container {
   background: #fff;
@@ -1212,11 +1225,10 @@ body {
   padding: 5px; }
 
 .footer {
-  font-size: 12px;
-  font-weight: bold;
-  padding: 10px 0; }
+  font-size: 11px;
+  margin-top: 10px; }
   .footer a {
-    color: #333;
+    color: #fff;
     text-decoration: none; }
     .footer a:hover {
       text-decoration: underline; }
