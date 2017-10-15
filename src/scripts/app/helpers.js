@@ -34,37 +34,34 @@ String.prototype.capitalize = function() {
 	return this.charAt(0).toUpperCase() + this.slice(1);
 };
 Array.prototype.chunk = function ( n ) {
-    if ( !this.length ) {
-        return [];
-    }
-    return [ this.slice( 0, n ) ].concat( this.slice(n).chunk(n) );
+	if ( !this.length ) {
+		return [];
+	}
+	return [ this.slice( 0, n ) ].concat( this.slice(n).chunk(n) );
 };
 if (!Function.prototype.bind) {
-  Function.prototype.bind = function(oThis) {
-    if (typeof this !== 'function') {
-      // closest thing possible to the ECMAScript 5
-      // internal IsCallable function
-      throw new TypeError('Function.prototype.bind - what is trying to be bound is not callable');
-    }
+	Function.prototype.bind = function(oThis) {
+		if (typeof this !== 'function') {
+			// closest thing possible to the ECMAScript 5
+			// internal IsCallable function
+			throw new TypeError('Function.prototype.bind - what is trying to be bound is not callable');
+		}
 
-    var aArgs   = Array.prototype.slice.call(arguments, 1),
-        fToBind = this,
-        fNOP    = function() {},
-        fBound  = function() {
-          return fToBind.apply(this instanceof fNOP
-                 ? this
-                 : oThis,
-                 aArgs.concat(Array.prototype.slice.call(arguments)));
-        };
+		var aArgs   = Array.prototype.slice.call(arguments, 1),
+			fToBind = this,
+			fNOP    = function() {},
+			fBound  = function() {
+				return fToBind.apply(this instanceof fNOP ? this : oThis, aArgs.concat(Array.prototype.slice.call(arguments)));
+			};
 
-    if (this.prototype) {
-      // native functions don't have a prototype
-      fNOP.prototype = this.prototype;
-    }
-    fBound.prototype = new fNOP();
+		if (this.prototype) {
+			// native functions don't have a prototype
+			fNOP.prototype = this.prototype;
+		}
+		fBound.prototype = new fNOP();
 
-    return fBound;
-  };
+		return fBound;
+	};
 }
 /* String.prototype.humanize = function( splitAt ) {
 	return (splitAt ? this.slice(0, splitAt) + ' ' + this.slice(splitAt) : this).replace(/_|-/g, ' ').replace(/(\w+)/g, function(match) {

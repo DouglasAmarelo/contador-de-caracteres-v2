@@ -28,8 +28,8 @@
 					<!-- Menu -->
 					<div class="col-xs-7">
 						<ul class="menu no-list text-center">
-							<li class="menu-item">Sem limitador</li>
-							<li class="menu-item">Facebook</li>
+							<li class="menu-item is--active">Unlimited</li>
+							<!-- <li class="menu-item">Facebook</li> -->
 							<li class="menu-item">AdWords</li>
 						</ul>
 					</div>
@@ -38,76 +38,110 @@
 			</div>
 			<!-- Header -->
 
+
 			<!-- Unlimited -->
-			<div class="content-unlimited">
+			<div class="content-container content-unlimited is--active">
 				<div class="row">
 					<div class="col-xs-10"><strong class="input-title">Text</strong></div>
-					<div class="col-xs-2 text-right"><div class="input-length">0</div></div>
+					<div class="col-xs-2 text-right"><div class="input-length"><span class="text">0</span></div></div>
 
 					<div class="col-xs-12">
 						<form action="#" class="form">
-							<textarea name="sem-limitador" id="sem-limitador" class="sem-limitador"></textarea>
+							<textarea name="unlimited" id="unlimited" class="sem-limitador"></textarea>
 						</form>
 					</div>
+				</div>
+
+				<div class="row">
+					<!-- Action buttons -->
+					<div class="action-buttons col-xs-12 text-center">
+						<div class="button-container">
+							<button class="button button-clear">Clear</button>
+							<button class="button button-copy">Copy</button>
+						</div>
+					</div>
+					<!-- /Action buttons -->
 				</div>
 			</div>
 			<!-- /Unlimited -->
 
 
 			<!-- AdWords -->
-			<div class="content-adwords">
+			<div class="content-container content-adwords">
 				<div class="row">
 					<div class="col-xs-10"><strong class="input-title">Headline 01</strong></div>
-					<div class="col-xs-2 text-right"><div class="input-length">30 / 30</div></div>
+					<div class="col-xs-2 text-right"><div class="input-length"><span class="text">0</span> / 30</div></div>
 
 					<div class="col-xs-12">
 						<form action="#" class="form">
-							<input type="text" name="" id="">
+							<input type="text" name="headline-01" id="headline-01" maxlength="30">
 						</form>
 					</div>
 				</div>
 
 				<div class="row">
 					<div class="col-xs-10"><strong class="input-title">Headline 02</strong></div>
-					<div class="col-xs-2 text-right"><div class="input-length">30 / 30</div></div>
+					<div class="col-xs-2 text-right"><div class="input-length"><span class="text">0</span> / 30</div></div>
 
 					<div class="col-xs-12">
 						<form action="#" class="form">
-							<input type="text" name="" id="">
+							<input type="text" name="headline-02" id="headline-02" maxlength="30">
 						</form>
 					</div>
 				</div>
 
 				<div class="row">
 					<div class="col-xs-10"><strong class="input-title">Description</strong></div>
-					<div class="col-xs-2 text-right"><div class="input-length">80 / 80</div></div>
+					<div class="col-xs-2 text-right"><div class="input-length"><span class="text">0</span> / 80</div></div>
 
 					<div class="col-xs-12">
 						<form action="#" class="form">
-							<input type="text" name="" id="">
+							<input type="text" name="description" id="description" maxlength="80">
 						</form>
 					</div>
 				</div>
 
 				<div class="row">
-					<div class="col-xs-3"><strong class="input-title">Path 01</strong></div>
-					<div class="col-xs-3 text-right"><div class="input-length">15 / 15</div></div>
-					<div class="col-xs-3"><strong class="input-title">Path 02</strong></div>
-					<div class="col-xs-3 text-right"><div class="input-length">15 / 15</div></div>
+					<div class="col-xs-6">
+						<div class="row">
+							<div class="col-xs-6"><strong class="input-title">Path 01</strong></div>
+							<div class="col-xs-6 text-right"><div class="input-length"><span class="text">0</span> / 15</div></div>
 
-					<div class="col-xs-6">
-						<form action="#" class="form">
-							<input type="text" name="" id="">
-						</form>
+							<div class="col-xs-12">
+								<form action="#" class="form">
+									<input type="text" name="path-01" id="path-01" maxlength="15">
+								</form>
+							</div>
+						</div>
 					</div>
 					<div class="col-xs-6">
-						<form action="#" class="form">
-							<input type="text" name="" id="">
-						</form>
+						<div class="row">
+							<div class="col-xs-6"><strong class="input-title">Path 02</strong></div>
+							<div class="col-xs-6 text-right"><div class="input-length"><span class="text">0</span> / 15</div></div>
+
+							<div class="col-xs-12">
+								<form action="#" class="form">
+									<input type="text" name="path-02" id="path-02" maxlength="15">
+								</form>
+							</div>
+						</div>
 					</div>
+				</div>
+
+				<div class="row">
+					<!-- Action buttons -->
+					<div class="action-buttons col-xs-12 text-center">
+						<div class="button-container">
+							<button class="button button-clear">Clear</button>
+							<button class="button button-preview">Preview</button>
+							<button class="button button-copy">Copy</button>
+						</div>
+					</div>
+					<!-- /Action buttons -->
 				</div>
 			</div>
 			<!-- /AdWords -->
+
 
 			<!-- Footer -->
 			<div class="footer text-center">

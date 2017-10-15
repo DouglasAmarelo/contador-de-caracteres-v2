@@ -30,3 +30,29 @@
 	resize: none;
 }
 
+// Action buttons
+.action-buttons { margin-top: 5px ; }
+
+.button-container {
+	border-top: 2px solid #fff;
+	display: inline-block;
+	padding: 10px 0;
+}
+
+.button {
+	background-color: transparent;
+	border: 1px solid #fff;
+	color: #fff;
+	height: 30px;
+	text-transform: lowercase;
+	transition: background-color .3s ease;
+	width: 80px;
+
+	&:nth-child(2) { margin: 0 10px; }
+
+	&:focus { outline: none; }
+
+	&:active,
+	&:hover { background-color: #538f69; }
+}
+
