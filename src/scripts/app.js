@@ -48,6 +48,19 @@ $(document).ready(function(){
 		inputLength.text(0);
 	});
 
+	btnCopy.click(function(e){
+		e.preventDefault();
+
+		formInput.each(function(a, b){
+			var c = $('#copy').val();
+			var d = $(this).val();
+
+			$('#copy').val(c + '\n' + d + '\n');
+
+			// console.log(c);
+		});
+	});
+
 
 });
 
