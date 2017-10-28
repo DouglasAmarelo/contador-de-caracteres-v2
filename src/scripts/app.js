@@ -1,14 +1,15 @@
-$(document).ready(function () {
+$(document).ready(function() {
 
 	'use strict';
 
+	// Page elements
 	var menuItem = $('.menu-item');
 	var container = $('.content-container');
 	var formInput = $('.form input, .form textarea');
-	var inputLength = $('.input-length .text');
+	var inputLength = container.find('.input-length .text');
 
 	// Menu
-	menuItem.click(function () {
+	menuItem.click(function() {
 		var thisForm = $('.content-' + $(this).text().toLowerCase());
 
 		menuItem.removeClass('is--active');
@@ -19,7 +20,7 @@ $(document).ready(function () {
 	});
 
 	// Counter
-	$('.form').submit(function () { return false; });
+	container.submit(function() { return false; });
 
 	function updateCounter(element, value) {
 		element
@@ -28,7 +29,7 @@ $(document).ready(function () {
 			.text(value);
 	}
 
-	formInput.on('input', function () {
+	formInput.on('input', function() {
 		var $self = $(this);
 		var valCounted = $self.val().length;
 
@@ -40,13 +41,10 @@ $(document).ready(function () {
 	var btnPreview = $('.button-preview');
 	var btnCopy = $('.button-copy');
 
-	function render (labelField, textField) {
-		return labelField + ': ' + textField;
-	}
-
+	// Copy to clipboard
 	function copyToClipboard(copyFrom) {
 
-		document.addEventListener('copy', function(e){
+		document.addEventListener('copy', function(e) {
 			e.preventDefault();
 
 			if ( e.clipboardData ) {
@@ -58,33 +56,31 @@ $(document).ready(function () {
 		document.execCommand('copy');
 	}
 
-	btnClear.click(function (e) {
+	// Clear form
+	btnClear.click(function(e) {
 		e.preventDefault();
 
-		var formContext = $(this).closest('.content-container');
+		var formContext = $(this).closest( container );
 
 		formContext.find(formInput).val('');
 		formContext.find(inputLength).text(0);
 	});
 
-	btnCopy.click(function (e) {
+	// Copy information
+	btnCopy.click(function(e) {
 		e.preventDefault();
 
 		var $self = $(this);
-		var formContext = $self.closest('.content-container');
-		var activeSection = '#' + $('.menu-item.is--active').text().toLocaleUpperCase();
-		var inputsText = '';
+		var formContext = $self.closest( container );
+		var inputsText = formContext.find( formInput ).val();
 
-		$.each(formContext.find('.row:not(.action-buttons)'), function (index, element) {
-			var labelField = $(element).find('.input-title').text();
-			var textField = $(element).find(formInput).val();
+		copyToClipboard( inputsText );
 
-			inputsText += render( labelField, textField ) + '\n';
-		});
-
-		inputsText = '\n' + activeSection + '\n' + inputsText + '\n';
-
-		copyToClipboard(inputsText);
+		// Copy message
+		$self.addClass('is--active');
+		setTimeout(function() {
+			$self.removeClass('is--active');
+		}, 800);
 	});
 
 });
