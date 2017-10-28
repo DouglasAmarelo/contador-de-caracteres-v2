@@ -36,11 +36,6 @@ $(document).ready(function() {
 		updateCounter($self, valCounted);
 	});
 
-	// Action buttons
-	var btnClear = $('.button-clear');
-	var btnPreview = $('.button-preview');
-	var btnCopy = $('.button-copy');
-
 	// Copy to clipboard
 	function copyToClipboard(copyFrom) {
 
@@ -55,6 +50,12 @@ $(document).ready(function() {
 
 		document.execCommand('copy');
 	}
+
+	// Action buttons
+	var btnClear = $('.button-clear');
+	var btnPreview = $('.button-preview');
+	var btnCopy = $('.button-copy');
+	var btnCopyItem = $('.button-item-copy');
 
 	// Clear form
 	btnClear.click(function(e) {
@@ -73,6 +74,20 @@ $(document).ready(function() {
 		var $self = $(this);
 		var formContext = $self.closest( container );
 		var inputsText = formContext.find( formInput ).val();
+
+		copyToClipboard( inputsText );
+
+		// Copy message
+		$self.addClass('is--active');
+		setTimeout(function() {
+			$self.removeClass('is--active');
+		}, 800);
+	});
+
+	// Item copy
+	btnCopyItem.click(function(){
+		var $self = $(this);
+		var inputsText = $self.prev( formInput ).val();
 
 		copyToClipboard( inputsText );
 
