@@ -48,11 +48,10 @@
 	background: transparent url('/images/clippy.svg') no-repeat right center;
 	background-size: auto 85%;
 	border: none;
-	// border: 1px solid #000;
 	display: block;
 	font-size: 0;
 	height: 28px;
-	opacity: .9;
+	opacity: .7;
 	position: absolute;
 	right: 5px;
 	top: 8px;
@@ -127,3 +126,34 @@
 	}
 }
 
+// Preview
+.preview {
+	background-color: #fff;
+	font-family: Arial, Helvetica, sans-serif;
+	line-height: 120%;
+	margin: .5em 0;
+	padding: 2em;
+}
+
+.preview__title {
+	color: #1a0dab;
+	font-size: 18px;
+}
+
+.preview__title,
+.preview__url {
+	display: block;
+	text-decoration: none;
+}
+
+.preview__url {
+	color: #006621;
+	font-size: 14px;
+	padding: 4px 0;
+}
+
+.preview__description {
+	color: #545454;
+	font-size: 13px;
+	margin: 0;
+}

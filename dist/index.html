@@ -29,9 +29,9 @@
 					<div class="col-xs-7">
 						<ul class="menu no-list text-center">
 							<li class="menu-item">Unlimited</li>
-							<li class="menu-item is--active">SEO</li>
+							<li class="menu-item">SEO</li>
 							<!-- <li class="menu-item">Facebook</li> -->
-							<li class="menu-item">AdWords</li>
+							<li class="menu-item is--active">AdWords</li>
 						</ul>
 					</div>
 					<!-- /Menu -->
@@ -69,7 +69,7 @@
 
 
 			<!-- SEO -->
-			<form action="#" class="form content-container content-seo is--active">
+			<form action="#" class="form content-container content-seo">
 				<div class="row no-gutter">
 					<div class="col-xs-10"><strong class="input-title">Title</strong></div>
 					<div class="col-xs-2 text-right"><div class="input-length"><span class="text">0</span> / 70</div></div>
@@ -123,7 +123,7 @@
 
 
 			<!-- AdWords -->
-			<form action="#" class="form content-container content-adwords">
+			<form action="#" class="form content-container content-adwords is--active">
 				<div class="row no-gutter">
 					<div class="col-xs-10"><strong class="input-title">Headline 01</strong></div>
 					<div class="col-xs-2 text-right"><div class="input-length"><span class="text">0</span> / 30</div></div>
@@ -156,6 +156,18 @@
 
 					<div class="col-xs-12">
 						<input type="text" name="description" id="description" maxlength="80">
+						<button class="button-item-copy">
+							Copy
+							<span class="button-action-warning">Copied</span>
+						</button>
+					</div>
+				</div>
+
+				<div class="row no-gutter">
+					<div class="col-xs-12"><strong class="input-title">Final URL</strong></div>
+
+					<div class="col-xs-12">
+						<input type="text" name="final-url" id="final-url">
 						<button class="button-item-copy">
 							Copy
 							<span class="button-action-warning">Copied</span>
@@ -204,6 +216,23 @@
 					</div>
 				</div>
 				<!-- /Action buttons -->
+
+				<!-- Preview -->
+				<div class="preview">
+					<a class="preview__title" href="#" title="">
+						<span class="preview__headline-01">Compra Certa: Até 40% Off</span>
+						<span class="preview__headline-02">Eletrodomésticos em Oferta‎</span>
+					</a>
+					<a class="preview__url" href="#" title="">
+						<span class="preview__final-url">loja.compracerta.com.br</span>
+						<span class="preview__path-01">/Brastemp&Consul</span>
+						<span class="preview__path-02">/Descontos</span>
+					</a>
+					<p class="preview__description">
+						<span class="preview__description">Produtos Brastemp e Consul. Promoções Diárias Para Você Economizar. Aproveite!</span>
+					</p>
+				</div>
+				<!-- /Preview -->
 			</form>
 			<!-- /AdWords -->
 
