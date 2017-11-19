@@ -26,7 +26,7 @@ $(document).ready(function() {
 		element
 			.closest('.row')
 			.find('.input-length .text')
-			.text(value);
+			.text( value );
 	}
 
 	formInput.on('input', function() {
@@ -34,7 +34,20 @@ $(document).ready(function() {
 		var valCounted = $self.val().length;
 
 		updateCounter($self, valCounted);
+
+		var formContext = $self.closest( container );
+		var previewContainer = formContext.find('.preview');
+
+		if ( previewContainer.length > 0 ) {
+			previewRender( $self );
+		}
 	});
+
+	function previewRender(element) {
+		var field = element.attr('name');
+
+		$('.preview__' + field).text(element.val());
+	}
 
 	// Copy to clipboard
 	function copyToClipboard(copyFrom) {
@@ -49,6 +62,16 @@ $(document).ready(function() {
 		});
 
 		document.execCommand('copy');
+	}
+
+	// Feedback message when copy
+	function copyFeedback(element) {
+		var $self = element;
+
+		$self.addClass('is--active');
+		setTimeout(function() {
+			$self.removeClass('is--active');
+		}, 800);
 	}
 
 	// Action buttons
@@ -77,25 +100,28 @@ $(document).ready(function() {
 
 		copyToClipboard( inputsText );
 
-		// Copy message
-		$self.addClass('is--active');
-		setTimeout(function() {
-			$self.removeClass('is--active');
-		}, 800);
+		copyFeedback($self);
 	});
 
 	// Item copy
-	btnCopyItem.click(function(){
+	btnCopyItem.click(function() {
 		var $self = $(this);
 		var inputsText = $self.prev( formInput ).val();
 
 		copyToClipboard( inputsText );
 
-		// Copy message
-		$self.addClass('is--active');
-		setTimeout(function() {
-			$self.removeClass('is--active');
-		}, 800);
+		copyFeedback($self);
+	});
+
+	// Preview
+	btnPreview.click(function(e) {
+		e.preventDefault();
+
+		var $self = $(this);
+		var formContext = $self.closest( container );
+		var previewContainer = formContext.find('.preview');
+
+		previewContainer.toggle();
 	});
 
 });

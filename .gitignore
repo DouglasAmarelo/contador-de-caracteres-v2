@@ -61,8 +61,8 @@ node_modules
 
 bin
 
-/vendor
-
 /dist
+
+/vendor
 
 conposer.lock
