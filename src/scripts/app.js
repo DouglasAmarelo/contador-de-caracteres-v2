@@ -80,14 +80,21 @@ $(document).ready(function() {
 	var btnCopy = $('.button-copy');
 	var btnCopyItem = $('.button-item-copy');
 
+	var tplADW = '<div class="preview__title"><span class="preview__headline-01">Lorem ipsum: dolor sit amet</span> <span class="preview__headline-02">Unde tempora lorem ipsum dolor</span></div><div class="preview__url"><span class="preview__final-url">www.loremipsum.com</span><span class="preview__path-01">/Lorem&Ipsum</span><span class="preview__path-02">/Dolor</span></div><p class="preview__description"><span class="preview__description">Ducimus dignissimos tempore facere numquam officiis? Incidunt totam cumque!</span></p>';
+
+	var tplSEO = '<div class="preview__title"><span class="preview__seo-title">Lorem ipsum: dolor sit amet</span></div><div class="preview__url"><span class="preview__seo-url">www.loremipsum.com</span></div><p class="preview__description"><span class="preview__seo-description">Ducimus dignissimos tempore facere numquam officiis? Incidunt totam cumque!</span></p>';
+
 	// Clear form
 	btnClear.click(function(e) {
 		e.preventDefault();
 
 		var formContext = $(this).closest( container );
+		var previewContainer = formContext.find('.preview');
 
 		formContext.find(formInput).val('');
 		formContext.find(inputLength).text(0);
+
+		previewContainer.hasClass('preview-adwords') ? previewContainer.html( tplADW ) : previewContainer.html( tplSEO );
 	});
 
 	// Copy information
@@ -121,7 +128,7 @@ $(document).ready(function() {
 		var formContext = $self.closest( container );
 		var previewContainer = formContext.find('.preview');
 
-		previewContainer.toggle();
+		previewContainer.toggleClass('is--active');
 	});
 
 });

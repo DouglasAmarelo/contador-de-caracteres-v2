@@ -52,7 +52,7 @@ body {
 		height: 100%;
 		left: 0;
 		min-height: calc(100% + 150px);
-		opacity: .5;
+		opacity: .55;
 		position: absolute;
 		top: 0;
 		width: 100%;
@@ -71,27 +71,28 @@ body {
 
 .mask {
 	// background: transparent url('../images/mask-image.png') center center;
-	background: repeating-linear-gradient(
-		-45deg,
-		#777 1.3px,
-		#777 1.7px,
-		transparent 2.1px,
-		transparent 10.5px
-	);
+	// background: repeating-linear-gradient(
+	// 	-45deg,
+	// 	#777 1.3px,
+	// 	#777 1.7px,
+	// 	transparent 2.1px,
+	// 	transparent 10.5px
+	// );
 	height: 100%;
 	left: 0;
 	min-height: calc(100% + 150px);
-	opacity: .4;
+	// opacity: .4;
 	position: absolute;
 	top: 0;
 	width: 100%;
 	z-index: 3;
 
 	&:before {
-		background-color: #7eca71;
+		// background-color: #7eca71;
+		background-color: #000;
 		content: '';
 		height: 100%;
-		opacity: .4;
+		opacity: .07;
 		position: absolute;
 		right: 0;
 		top: 0;
