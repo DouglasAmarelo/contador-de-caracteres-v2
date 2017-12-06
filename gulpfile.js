@@ -10,7 +10,8 @@ var gulp			= require('gulp'),
 	browserSync 	= require('browser-sync'),
 	named			= require('vinyl-named'),
 	path			= require('path'),
-	webpack 		= require('webpack-stream');
+	webpack 		= require('webpack-stream'),
+	zip				= require('gulp-zip');
 
 
 var paths = {
@@ -168,6 +169,7 @@ gulp.task('bump', function(){
 gulp.task('zip', function(){
 	return gulp
 		.src(paths.dest.build)
+		.pipe(zip('build.zip'))
 		.pipe(gulp.dest('build'));
 });
 
