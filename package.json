@@ -1,7 +1,7 @@
 {
   "name": "contador-de-caracteres",
   "description": "Contador de caracteres - Jüssi",
-  "version": "1.1.11",
+  "version": "1.1.13",
   "author": "Douglas \"Amarelo\" Lopes",
   "private": true,
   "dependencies": {
